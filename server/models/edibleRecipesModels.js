@@ -9,10 +9,10 @@ const pool = new Pool({
 });
 
 
-// const test = `INSERT INTO public.users(name, password, email) VALUES(unique, unique, unique@unique.unique)`;
-// pool.query(test);
+const test = `INSERT INTO public.users ("name", "password", "email") VALUES("squad", "squad", "squad@squad");`;
+pool.query(test);
 
-// pool.query(`SELECT * FROM public.users`).then(res => console.log(res));
+pool.query(`SELECT * FROM public.users`).then(res => console.log(res));
 
 // Adding some notes about the database here will be helpful for future you or other developers.
 // Schema for the database can be found below:
@@ -21,9 +21,9 @@ const pool = new Pool({
 // We export an object that contains a property called query,
 // which is a function that returns the invocation of pool.query() after logging the query
 // This will be required in the controllers to be the access point to the database
-module.exports = {
-    query: (text, params, callback) => {
-        console.log('PostgresQL Database establish', text);
-        return pool.query(text, params, callback);
-    }
-};
+// module.exports = {
+//     query: (text, params, callback) => {
+//         console.log('PostgresQL Database establish', text);
+//         return pool.query(text, params, callback);
+//     }
+// };
