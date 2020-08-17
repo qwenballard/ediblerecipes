@@ -19,14 +19,13 @@ class App extends Component {
             <li>
               <Link to="/login">Log In</Link>
             </li>
-            <li>
-              <Link to="/recipesform">Recipes Form</Link>
-            </li>
           </ul>
-
-          <Route path="/signup" exact component={SignUp} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/recipesform" exact component={RecipesForm} />
+          {/* {this.state.authenticated && <Redirect to="/recipesform" />} */}
+          <Switch>
+            <Route path="/signup" exact component={SignUp} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/recipesform" exact component={RecipesForm} />
+          </Switch>
         </div>
       </Router>
     );
