@@ -1,18 +1,25 @@
-const { Pool, Client } = require('pg');
+const { Pool } = require('pg');
 
 //postgres://nagsauar:3uEIYk1GNWY8XPHcw61ZsQErEvPKtr2d@rajje.db.elephantsql.com:5432/nagsauar
-const PG_URI = 'postgres://nagsauar:3uEIYk1GNWY8XPHcw61ZsQErEvPKtr2d@rajje.db.elephantsql.com:5432/nagsauar';
+const PG_URI =
+  'postgres://nagsauar:3uEIYk1GNWY8XPHcw61ZsQErEvPKtr2d@rajje.db.elephantsql.com:5432/nagsauar';
 
 // create a new pool here using the connection string above
 const pool = new Pool({
-    connectionString: PG_URI
+  connectionString: PG_URI,
 });
 
+const test = `INSERT INTO public.users (name, password, email) VALUES ('hello', 'hello', 'hello@hello.hello')`;
+pool.query(test);
 
+<<<<<<< HEAD
 const test = `INSERT INTO public.users ("name", "password", "email") VALUES("squad", "squad", "squad@squad");`;
 pool.query(test);
 
 pool.query(`SELECT * FROM public.users`).then(res => console.log(res));
+=======
+// pool.query(`SELECT * FROM public.users`).then((res) => console.log(res));
+>>>>>>> 12332de78694673702913e7361bcbbaf170263be
 
 // Adding some notes about the database here will be helpful for future you or other developers.
 // Schema for the database can be found below:
@@ -21,9 +28,18 @@ pool.query(`SELECT * FROM public.users`).then(res => console.log(res));
 // We export an object that contains a property called query,
 // which is a function that returns the invocation of pool.query() after logging the query
 // This will be required in the controllers to be the access point to the database
+<<<<<<< HEAD
 // module.exports = {
 //     query: (text, params, callback) => {
 //         console.log('PostgresQL Database establish', text);
 //         return pool.query(text, params, callback);
 //     }
 // };
+=======
+module.exports = {
+  query: (text, params, callback) => {
+    // console.log("PostgresQL Database establish", text);
+    return pool.query(text, params, callback);
+  },
+};
+>>>>>>> 12332de78694673702913e7361bcbbaf170263be
